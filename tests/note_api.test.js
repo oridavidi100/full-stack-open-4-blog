@@ -2,7 +2,18 @@ const mongoose = require('mongoose');
 const supertest = require('supertest');
 const app = require('../index');
 const Blog = require('../models/blogSchema');
+const User = require('../models/userSchema');
 const api = supertest(app);
+const users = [
+  {
+    id: '61ba0f85cfd3ff89ccc50f38',
+    username: 'admin',
+    name: 'admin',
+    password: '12345',
+    password: '$2b$10$965dXhqmwOuugIkrbjulPerhmiWn9nIN.clcLAGRH6CmJRMZkZ98O',
+    blogs: [],
+  },
+];
 const initialBlogs = [
   {
     _id: '5a422a851b54a676234d17f7',
@@ -57,6 +68,7 @@ const initialBlogs = [
 beforeEach(async () => {
   await Blog.deleteMany({});
   await Blog.insertMany(initialBlogs);
+  await User.insertMany(users);
 });
 
 test('correct amount of blogs is returned', async () => {

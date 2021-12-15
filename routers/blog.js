@@ -1,4 +1,3 @@
-const mongoose = require('mongoose');
 const express = require('express');
 const router = express.Router();
 const { getAllBlogs, newBlog, deleteBlog, updateLikes } = require('../controllers/blog');
