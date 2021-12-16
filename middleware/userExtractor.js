@@ -4,6 +4,7 @@ const userExtractor = async (req, res, next) => {
   try {
     const authorization = req.get('authorization');
     if (authorization === undefined) {
+      next();
       return null;
     }
     if (authorization && authorization.toLowerCase().startsWith('bearer ')) {
