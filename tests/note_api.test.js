@@ -68,6 +68,7 @@ const initialBlogs = [
 beforeEach(async () => {
   await Blog.deleteMany({});
   await Blog.insertMany(initialBlogs);
+  await User.deleteMany({});
   await User.insertMany(users);
 });
 
