@@ -23,7 +23,7 @@ app.use(cors());
 app.use(express.json());
 app.use('/api/users', userRouter);
 app.use('/api/login', loginRouter);
-app.use('/', userExtractor, router);
+app.use('/api/blogs', userExtractor, router);
 app.use(errorHandlerMiddleware);
 const PORT = 3003;
 app.listen(PORT, () => {
