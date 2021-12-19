@@ -8,7 +8,7 @@ const userRouter = require('./routers/user');
 require('dotenv').config();
 const { errorHandlerMiddleware } = require('./middleware/errorHandler');
 const mongoUrl = process.env.NODE_ENV === 'test' ? process.env.TEST_MONGODB_URI : process.env.MONGODB_URI;
-const loginRouter = require('./controllers/userLogin');
+const loginRouter = require('./routers/userLogin');
 const { userExtractor } = require('./middleware/userExtractor');
 mongoose
   .connect(mongoUrl)

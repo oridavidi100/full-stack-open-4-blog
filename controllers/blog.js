@@ -1,3 +1,4 @@
+const res = require('express/lib/response');
 const Blog = require('../models/blogSchema');
 const User = require('../models/userSchema');
 exports.getAllBlogs = async (request, response, next) => {
