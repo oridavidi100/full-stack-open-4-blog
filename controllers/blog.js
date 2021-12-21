@@ -86,10 +86,12 @@ exports.deleteBlog = async (req, res, next) => {
 exports.updateLikes = async (req, res, next) => {
   try {
     const { likes, id } = req.query;
+    // console.log(likes, id);
     if (!id || !likes) {
       throw { status: 400, message: 'miss ' };
     }
-    const blogs = await Blog.findOneAndUpdate({ id }, { likes });
+    const blogs = await Blog.findOneAndUpdate({ _id: id }, { likes });
+    // console.log(blogs);
     if (blogs === null) {
       throw { status: 404, message: 'not found' };
     }

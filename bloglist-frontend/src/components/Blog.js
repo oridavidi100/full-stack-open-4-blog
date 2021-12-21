@@ -20,8 +20,8 @@ const Blog = ({ blog }) => {
       );
     } else setblogView('');
   };
-  const like = async () => {
-    let response = await axios.put(`/api/blogs/update?id=${blog.id}&likes=${blog.likes + 1}`);
+  const like = async (e) => {
+    let response = await axios.put(`/api/blogs/update?id=${e.target.value}&likes=${blog.likes + 1}`);
     console.log(response);
   };
   const Delete = async () => {
@@ -43,7 +43,7 @@ const Blog = ({ blog }) => {
       <button type='button' onClick={view}>
         view
       </button>
-      <button type='button' onClick={like}>
+      <button type='button' onClick={like} value={blog.id}>
         Like
       </button>
       <button type='button' onClick={Delete}>
